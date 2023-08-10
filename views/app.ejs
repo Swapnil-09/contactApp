@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <title>Contacts</title>
+</head>
+<body> 
+    <header>
+        <nav>
+            <h1>Contact App</h1>
+        </nav>
+    </header>
+    <main>
+        <div class="contact">
+            <form class="forM" action="/submit" method="post">
+                <input type="text" name="name" placeholder="Enter name">
+                <input type="text" name="email" placeholder="Enter email address">
+                <input type="text" name="phone" placeholder="Enter phone number">
+                <input type="submit" value="Add Contact">
+            </form>
+        </div>
+        <div class="data">
+            <div class="container">
+                <% dataList.forEach(data=> { %>
+                    <div class="card">
+                        <p>
+                            <%= data.name %>
+                        </p>
+                        <p>
+                            <%= data.email %>
+                        </p>
+                        <p>
+                            <%= data.phone %>
+                        </p>
+                        <form action="/<%= data._id %>" method="post">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+        
+    </main>
+    
+
+</body>
+</html>
